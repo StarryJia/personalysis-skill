@@ -1,21 +1,21 @@
-# PersonLens
+# Personalysis
 
 **在处境中理解人。**
 
 [English](README.md) | 简体中文
 
-PersonLens 是一套以心理学理论和人格分析框架为基础的通用方法论，以技能形式提供给人工智能助手。它根据聊天、日记与本人补充，理解行为、目标、情绪及关系互动，区分原文观察、本人体验与可能解释，并随着新信息修订判断。
+Personalysis 是一套以心理学理论和人格分析框架为基础的通用方法论，以技能形式提供给人工智能助手。它根据聊天、日记与本人补充，理解行为、目标、情绪及关系互动，区分原文观察、本人体验与可能解释，并随着新信息修订判断。
 
 适用于会话分析、个人反思和支持性交流。例如，分析聊天中的互动模式、结合本人补充重新理解一次冲突，或帮助表达一段难以整理的感受。开发者可以将这些方法接入自己的对话助手或个人记录工具。
 
 ## 使用
 
-将完整的 [`skills/personlens/`](skills/personlens/SKILL.md) 目录复制到使用工具支持的技能目录，按该工具的说明发现或重新加载技能。仅克隆仓库不会自动启用。
+将完整的 [`skills/personalysis/`](skills/personalysis/SKILL.md) 目录复制到使用工具支持的技能目录，按该工具的说明发现或重新加载技能。仅克隆仓库不会自动启用。
 
 在支持按名称调用技能的工具中，可以这样提问：
 
 ```text
-请使用 $personlens 帮我理解下面这段交流，区分原话能支持的观察、
+请使用 $personalysis 帮我理解下面这段交流，区分原话能支持的观察、
 可能的解释以及尚不能确定的部分。
 ```
 
@@ -25,7 +25,7 @@ PersonLens 是一套以心理学理论和人格分析框架为基础的通用方
 
 ## 理论基础
 
-PersonLens 用人格心理学区分当场表现与较长期倾向，用人格判断研究审视观察者的证据，再参考动机、情绪及人际关系理论，理解同一经历还可能有哪些解释。以人为中心取向则指导如何回应正在表达或反思的人。
+Personalysis 用人格心理学区分当场表现与较长期倾向，用人格判断研究审视观察者的证据，再参考动机、情绪及人际关系理论，理解同一经历还可能有哪些解释。以人为中心取向则指导如何回应正在表达或反思的人。
 
 以下整理各理论的核心观点与原始文献。
 
@@ -46,22 +46,22 @@ PersonLens 用人格心理学区分当场表现与较长期倾向，用人格判
 
 **大五人格（Big Five）**用开放性、尽责性、外向性、宜人性和神经质五个维度描述差异。**迈尔斯–布里格斯性格类型指标（Myers–Briggs Type Indicator，MBTI）**以偏好及类型组织描述。它们与解释行为产生过程、判断观察者是否有依据的理论属于不同层次。
 
-PersonLens 从具体行为与处境开始分析，在用户需要时引入相应的描述体系。例如，工作会议中经常发言，先记录为该场景中的参与表现，再结合其他材料讨论人格倾向。全特质理论以大五为研究起点；大五维度与 MBTI 类型分别解释，保留各自的概念与测量方式。[McCrae 与 Costa，1989](https://scholars.duke.edu/publication/1458465/)
+Personalysis 从具体行为与处境开始分析，在用户需要时引入相应的描述体系。例如，工作会议中经常发言，先记录为该场景中的参与表现，再结合其他材料讨论人格倾向。全特质理论以大五为研究起点；大五维度与 MBTI 类型分别解释，保留各自的概念与测量方式。[McCrae 与 Costa，1989](https://scholars.duke.edu/publication/1458465/)
 
 ### 理论框架基础
 
-**自动人格识别（Automatic Personality Recognition，APR）**研究如何从资料推断人格；**可解释人格识别（Explainable Personality Recognition）**进一步要求提供支持判断的证据。PersonLens 的材料分析参考这一研究方向，将判断与具体发言、情境及解释过程联系起来。
+**自动人格识别（Automatic Personality Recognition，APR）**研究如何从资料推断人格；**可解释人格识别（Explainable Personality Recognition）**进一步要求提供支持判断的证据。Personalysis 的材料分析参考这一研究方向，将判断与具体发言、情境及解释过程联系起来。
 
-**人格证据链（Chain-of-Personality-Evidence，CoPE）**是连接具体情境、短期人格状态与较长期特质的推断框架。PersonLens 参考这一思路，先识别某次交流中的表现，再结合不同时间和处境中的材料讨论较稳定的倾向。[Sun、Zhao 与 Jin，2024：*Revealing Personality Traits: A New Benchmark Dataset for Explainable Personality Recognition on Dialogues*](https://aclanthology.org/2024.emnlp-main.1115/)
+**人格证据链（Chain-of-Personality-Evidence，CoPE）**是连接具体情境、短期人格状态与较长期特质的推断框架。Personalysis 参考这一思路，先识别某次交流中的表现，再结合不同时间和处境中的材料讨论较稳定的倾向。[Sun、Zhao 与 Jin，2024：*Revealing Personality Traits: A New Benchmark Dataset for Explainable Personality Recognition on Dialogues*](https://aclanthology.org/2024.emnlp-main.1115/)
 
-PersonalityEvd 的人格证据标注和 CaSiNo 的谈判对话研究，为 PersonLens 的证据组织与情境分析提供研究参照。
+PersonalityEvd 的人格证据标注和 CaSiNo 的谈判对话研究，为 Personalysis 的证据组织与情境分析提供研究参照。
 
 | 研究材料 | 材料内容 | 方法论参考 |
 | --- | --- | --- |
 | **PersonalityEvd**，见 [Sun 等，2024](https://aclanthology.org/2024.emnlp-main.1115/) | 电视剧人物对话及大五人格的观察者标注。 | 将人格判断与发言证据对应，区分状态与特质。例如，核对所引发言如何支持报告中的行为描述。 |
 | **CaSiNo**，见 [Chawla 等，2021：*A Corpus of Campsite Negotiation Dialogues for Automatic Negotiation Systems*](https://aclanthology.org/2021.naacl-main.254/) | 真人参与的模拟露营物资谈判，包含分配的物资优先级及人格问卷数据。 | 将角色、目标与互动策略一起分析。例如，结合分配的优先级，解释参与者为何争取更多饮用水。 |
 
-各理论的核心观点、分析原则和原始论文，见[理论与参考文献](skills/personlens/references/theory-basis.md)。
+各理论的核心观点、分析原则和原始论文，见[理论与参考文献](skills/personalysis/references/theory-basis.md)。
 
 ## 许可
 

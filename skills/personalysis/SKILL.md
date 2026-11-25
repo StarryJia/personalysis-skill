@@ -1,12 +1,12 @@
 ---
-name: personlens
+name: personalysis
 description: Interpret supplied conversations, journals, and personal accounts using psychology-informed, evidence-grounded reasoning. Use for understanding behavior in context, reflecting on motives and relationships, discussing personality tendencies, or revising an interpretation after clarification. Supports reflective dialogue without requiring personality typing.
 license: MIT
 metadata:
   version: "0.1.0"
 ---
 
-# PersonLens
+# Personalysis
 
 Help people understand concrete experiences while keeping observations, reported experience, and possible explanations distinct. Use the supplied material and respond in the user's language.
 

@@ -1,6 +1,6 @@
 # Host integration
 
-PersonLens supplies interpretation rules. The host supplies the actual task, authorized material, available tools, output contract, and storage operations. A skills-aware host may activate the package through its normal discovery mechanism; another host may inject the `SKILL.md` body into its existing model request.
+Personalysis supplies interpretation rules. The host supplies the actual task, authorized material, available tools, output contract, and storage operations. A skills-aware host may activate the package through its normal discovery mechanism; another host may inject the `SKILL.md` body into its existing model request.
 
 ## Minimal integration
 
@@ -18,12 +18,12 @@ Load the core instructions for the task and expose supporting references when re
 
 The same methodology can support different kinds of application. Choose the pattern that matches the user's task:
 
-| Task | Use of PersonLens | Host-owned responsibility |
+| Task | Use of Personalysis | Host-owned responsibility |
 | --- | --- | --- |
 | Conversation analysis | Analyze behavior and interaction in the selected source range | Source selection, report format, citation checks, and report storage |
 | Personal reflection | Discuss a question and incorporate the user's own clarification | Conversation context and user-approved record updates |
 | Supportive conversation | Help express and understand feelings in the person's own terms | Conversation controls and any user-approved storage |
 
-For example, a conversation assistant can supply a discussion about dividing work and ask for an explanation of how the speakers negotiated responsibility. PersonLens guides the interpretation of proposals, refusals, and stated constraints; the assistant provides the selected messages and renders the result in its own interface.
+For example, a conversation assistant can supply a discussion about dividing work and ask for an explanation of how the speakers negotiated responsibility. Personalysis guides the interpretation of proposals, refusals, and stated constraints; the assistant provides the selected messages and renders the result in its own interface.
 
-Keep application-specific formats, optional personality descriptions, and storage rules in the host's task instructions. Record the selected PersonLens version with the task so later review can recover the instructions used.
+Keep application-specific formats, optional personality descriptions, and storage rules in the host's task instructions. Record the selected Personalysis version with the task so later review can recover the instructions used.

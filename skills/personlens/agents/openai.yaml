@@ -1,4 +1,0 @@
-interface:
-  display_name: "PersonLens"
-  short_description: "Understand people through evidence and context"
-  default_prompt: "Use $personlens to help me understand this conversation, keeping observations, possible explanations, and uncertainty distinct."

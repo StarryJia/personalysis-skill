@@ -1,21 +1,21 @@
-# PersonLens
+# Personalysis
 
 **Understanding people in context.**
 
 English | [Chinese](README.zh-CN.md)
 
-PersonLens is a general methodology for understanding people in context, packaged as an AI assistant skill. It supports interpreting conversations, journals, and personal accounts, as well as personal reflection and supportive conversation. It helps an assistant distinguish observable behavior, a person's own account, and possible explanations by drawing on personality, motivation, appraisal, interpersonal behavior, and reflective dialogue.
+Personalysis is a general methodology for understanding people in context, packaged as an AI assistant skill. It supports interpreting conversations, journals, and personal accounts, as well as personal reflection and supportive conversation. It helps an assistant distinguish observable behavior, a person's own account, and possible explanations by drawing on personality, motivation, appraisal, interpersonal behavior, and reflective dialogue.
 
 Use it directly in a skill-enabled assistant or integrate it into a reflection tool or conversation application. The methodology starts with the person's question and available material; personality descriptions are optional.
 
 ## Try the skill
 
-The complete skill package is [`skills/personlens/`](skills/personlens/SKILL.md). Copy that directory, including `references/` and `agents/`, into the skill directory supported by your host. Repository cloning alone does not activate a skill. Follow your host's instructions to discover or reload it.
+The complete skill package is [`skills/personalysis/`](skills/personalysis/SKILL.md). Copy that directory, including `references/` and `agents/`, into the skill directory supported by your host. Repository cloning alone does not activate a skill. Follow your host's instructions to discover or reload it.
 
 In a host that supports named skill invocation, a starting request is:
 
 ```text
-Use $personlens to help me understand these exchanges. Distinguish what I
+Use $personalysis to help me understand these exchanges. Distinguish what I
 actually said, possible explanations, and what cannot be inferred yet.
 ```
 
@@ -27,15 +27,15 @@ For an application without skill discovery, load the Markdown body of `SKILL.md`
 
 | File | Purpose |
 | --- | --- |
-| [SKILL.md](skills/personlens/SKILL.md) | Self-contained reasoning and response guidance for material analysis, interactive reflection, and supportive conversation |
-| [Theory and references](skills/personlens/references/theory-basis.md) | Primary sources, their scope, and the interpretation rules derived from them |
-| [Illustrative scenarios](skills/personlens/references/scenarios.md) | Example inputs and observable response criteria for reviewing the instructions |
+| [SKILL.md](skills/personalysis/SKILL.md) | Self-contained reasoning and response guidance for material analysis, interactive reflection, and supportive conversation |
+| [Theory and references](skills/personalysis/references/theory-basis.md) | Primary sources, their scope, and the interpretation rules derived from them |
+| [Illustrative scenarios](skills/personalysis/references/scenarios.md) | Example inputs and observable response criteria for reviewing the instructions |
 | [Host integration](integrations/host-integration.md) | Guidance for connecting the skill to an application's inputs, permissions, outputs, and storage |
 | [Validation record](docs/validation.md) | Package checks and review evidence |
 
 ## Theoretical foundations
 
-PersonLens uses personality psychology to distinguish a person's behavior in one situation from a broader tendency, personality-judgment research to examine the evidence, and theories of motivation, emotion, and relationships to consider what else may explain the experience. A person-centered approach guides how to respond when someone wants to reflect or express feelings.
+Personalysis uses personality psychology to distinguish a person's behavior in one situation from a broader tendency, personality-judgment research to examine the evidence, and theories of motivation, emotion, and relationships to consider what else may explain the experience. A person-centered approach guides how to respond when someone wants to reflect or express feelings.
 
 Each perspective contributes a different part of the method: organizing observations, considering explanations, or guiding the conversation. The table summarizes each theory's role and primary sources.
 
@@ -56,15 +56,15 @@ Each perspective contributes a different part of the method: organizing observat
 
 The **Big Five** describes openness, conscientiousness, extraversion, agreeableness, and neuroticism as dimensions. The **Myers–Briggs Type Indicator (MBTI)** organizes personality preferences into a type framework. These are descriptive choices, distinct from theories about how behavior arises or how an observer can judge it.
 
-**Example:** Someone who frequently speaks in work meetings can explore when they contribute and what helps them speak up. A personality description can be added if it serves their question. Whole Trait Theory uses the Big Five as a starting point. PersonLens keeps Big Five dimensions and MBTI preferences separate, using the concepts and evidence appropriate to each. Research on the relationship between these descriptive frameworks provides further background. [McCrae and Costa, 1989](https://scholars.duke.edu/publication/1458465/)
+**Example:** Someone who frequently speaks in work meetings can explore when they contribute and what helps them speak up. A personality description can be added if it serves their question. Whole Trait Theory uses the Big Five as a starting point. Personalysis keeps Big Five dimensions and MBTI preferences separate, using the concepts and evidence appropriate to each. Research on the relationship between these descriptive frameworks provides further background. [McCrae and Costa, 1989](https://scholars.duke.edu/publication/1458465/)
 
 ### Theoretical framework foundations
 
-**Automatic Personality Recognition (APR)** is the research task of inferring personality from data. **Explainable Personality Recognition** additionally asks for supporting evidence. These tasks inform how PersonLens approaches evidence-based personality descriptions. In reflective and supportive conversation, the focus can instead be the person's experience, feelings, or choices.
+**Automatic Personality Recognition (APR)** is the research task of inferring personality from data. **Explainable Personality Recognition** additionally asks for supporting evidence. These tasks inform how Personalysis approaches evidence-based personality descriptions. In reflective and supportive conversation, the focus can instead be the person's experience, feelings, or choices.
 
-The **Chain-of-Personality-Evidence (CoPE)** framework links concrete context to short-term personality states and then to longer-term traits. It serves as a computational reference for organizing that reasoning in PersonLens's language instructions. **Example:** Begin with what a speaker did during a deadline discussion, describe the state suggested by that exchange, and consider a broader tendency only in light of evidence across situations. [Sun, Zhao, and Jin, 2024: *Revealing Personality Traits: A New Benchmark Dataset for Explainable Personality Recognition on Dialogues*](https://aclanthology.org/2024.emnlp-main.1115/)
+The **Chain-of-Personality-Evidence (CoPE)** framework links concrete context to short-term personality states and then to longer-term traits. It serves as a computational reference for organizing that reasoning in Personalysis's language instructions. **Example:** Begin with what a speaker did during a deadline discussion, describe the state suggested by that exchange, and consider a broader tendency only in light of evidence across situations. [Sun, Zhao, and Jin, 2024: *Revealing Personality Traits: A New Benchmark Dataset for Explainable Personality Recognition on Dialogues*](https://aclanthology.org/2024.emnlp-main.1115/)
 
-PersonalityEvd's personality evidence annotations and CaSiNo's research on negotiation dialogue inform PersonLens's approach to organizing evidence and interpreting behavior in context.
+PersonalityEvd's personality evidence annotations and CaSiNo's research on negotiation dialogue inform Personalysis's approach to organizing evidence and interpreting behavior in context.
 
 | Source | Research material | Methodological relevance |
 | --- | --- | --- |
@@ -73,4 +73,4 @@ PersonalityEvd's personality evidence annotations and CaSiNo's research on negot
 
 ## License
 
-Original PersonLens instructions and documentation are provided under the [MIT License](LICENSE). Linked papers, datasets, and external implementations remain subject to their own licenses.
+Original Personalysis instructions and documentation are provided under the [MIT License](LICENSE). Linked papers, datasets, and external implementations remain subject to their own licenses.

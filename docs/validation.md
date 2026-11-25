@@ -1,16 +1,16 @@
 # Validation record
 
-Date: 2026-11-25, Asia/Shanghai. Package: PersonLens 0.1.0.
+Date: 2026-11-25, Asia/Shanghai. Package: Personalysis 0.1.0.
 
 This record covers local package checks and small, synthetic instruction-following exercises. It is not a benchmark, personality validation study, clinical evaluation, or certification of a host integration.
 
 ## Package checks
 
 - The installed `skill-creator` initializer created the skill layout and optional `agents/openai.yaml` metadata.
-- Its `quick_validate.py` checker accepted the skill frontmatter and body. The skill name is `personlens`, matching its installation directory; version metadata is a string and license metadata is MIT.
+- Its `quick_validate.py` checker accepted the skill frontmatter and body. The skill name is `personalysis`, matching its installation directory; version metadata is a string and license metadata is MIT.
 - Relative documentation links and UTF-8 text were checked locally. Skill resources resolve within the package.
 - The complete skill directory includes its own MIT license notice so copying it retains the notice. The repository root has the same license.
-- Automatic selection remains at the host's default; the optional UI metadata includes a `$personlens` starting prompt and declares no tool dependencies.
+- Automatic selection remains at the host's default; the optional UI metadata includes a `$personalysis` starting prompt and declares no tool dependencies.
 
 These checks do not establish that every host discovers this repository layout. The instructions in the README are integration guidance, not a report of successful installation.
 

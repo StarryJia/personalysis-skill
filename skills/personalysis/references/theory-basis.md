@@ -1,10 +1,10 @@
 # Theory and references
 
-PersonLens draws on personality psychology, personality-judgment research, motivation, appraisal, and interpersonal theory to interpret behavior in context. Use this reference to look up the original papers, the concepts they introduce, and how PersonLens applies them.
+Personalysis draws on personality psychology, personality-judgment research, motivation, appraisal, and interpersonal theory to interpret behavior in context. Use this reference to look up the original papers, the concepts they introduce, and how Personalysis applies them.
 
 ## Eight perspectives
 
-| Perspective and original source | Definition | PersonLens application | Boundary |
+| Perspective and original source | Definition | Personalysis application | Boundary |
 | --- | --- | --- | --- |
 | Whole Trait Theory — [Fleeson and Jayawickreme, 2015](https://pmc.ncbi.nlm.nih.gov/articles/PMC4472377/); [Fleeson, 2001](https://personality-project.org/revelle/syllabi/classreadings/fleeson.2001.pdf) | Traits have a descriptive distribution of momentary states and explanatory social-cognitive processes. | Compare conditions: someone covers urgent work but declines weekend requests. Preserve both observations before generalizing. | Selected messages cannot establish a complete state distribution or uniquely reveal its causes. |
 | Realistic Accuracy Model (RAM) — [Funder, 1995](https://rap.ucr.edu/FunderPR1995.pdf) | Accurate judgment requires relevant cues to be available, detected, and appropriately used. | Link a claim to its source and context; include the refusal that qualifies an apparent pattern of agreement. | A traceable quotation or agreement among models does not establish accuracy. These stages are not a validated model score. |
@@ -17,7 +17,7 @@ PersonLens draws on personality psychology, personality-judgment research, motiv
 
 ## Optional personality frameworks
 
-The Myers–Briggs Type Indicator (MBTI) is optional, not required for PersonLens. Treat a supplied type as an attributed report; any requested type discussion remains tentative. Big Five dimensions describe openness, conscientiousness, extraversion, agreeableness, and neuroticism. Associations between these frameworks do not authorize converting scores or validate conversational typing. For example, frequent work presentations cannot settle a person's reported preference for introversion. [McCrae and Costa, 1989](https://doi.org/10.1111/j.1467-6494.1989.tb00759.x).
+The Myers–Briggs Type Indicator (MBTI) is optional, not required for Personalysis. Treat a supplied type as an attributed report; any requested type discussion remains tentative. Big Five dimensions describe openness, conscientiousness, extraversion, agreeableness, and neuroticism. Associations between these frameworks do not authorize converting scores or validate conversational typing. For example, frequent work presentations cannot settle a person's reported preference for introversion. [McCrae and Costa, 1989](https://doi.org/10.1111/j.1467-6494.1989.tb00759.x).
 
 ## Research resources
 
