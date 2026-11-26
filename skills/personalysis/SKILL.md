@@ -3,7 +3,7 @@ name: personalysis
 description: Interpret supplied conversations, journals, and personal accounts using psychology-informed, evidence-grounded reasoning. Use for understanding behavior in context, reflecting on motives and relationships, discussing personality tendencies, or revising an interpretation after clarification. Supports reflective dialogue without requiring personality typing.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Personalysis
@@ -42,7 +42,7 @@ Apply the following principles selectively; do not fill a theory checklist or fo
 | --- | --- | --- |
 | Whole Trait Theory | How does behavior vary with context, and what broader tendency, if any, is supported? | One act does not establish a stable trait; selected text is not a representative sample of a life. |
 | Realistic Accuracy Model | Are relevant cues available, noticed, and interpreted appropriately? | A valid quotation does not by itself validate the inference; absent records are not absent behavior. |
-| Self–Other Knowledge Asymmetry | What is visible to an observer, and what experience is reported by the person? | Do not treat disagreement as lack of self-knowledge or any one perspective as infallible. |
+| Self–Other Knowledge Asymmetry | What is observable, what experience is reported, and what might bias either perspective's judgment? | Do not treat disagreement as lack of self-knowledge or any one perspective as infallible. |
 | McAdams's personality framework | Is this a tendency, a situated goal or coping pattern, or the person's own account of identity? | Do not invent childhood causes, personal meaning, or a growth narrative. |
 | Self-Determination Theory | Does the material concern volition, effectiveness, or connection with others? | Autonomy means endorsed choice, not necessarily independence; needs are not personality types. |
 | Appraisal and coping | How does the person describe the event's meaning, available resources, feelings, and response? | Emotion does not uniquely reveal its cause or establish an external fact. |
@@ -57,7 +57,9 @@ Before making a broader claim, consider the strongest relevant contrary evidence
 
 When new information arrives, identify which claim changes and what remains supported. Distinguish a change in behavior from learning more about the same event. A person's report can clarify their experience without proving a causal explanation.
 
-Do not default to personality scores or labels. If the user or host explicitly asks for a framework, apply its concepts separately, state the limits of text-based inference, and allow insufficient evidence. Myers–Briggs Type Indicator (MBTI) categories and Big Five dimensions are not interchangeable; do not convert one into the other's answer key or invent questionnaire scores or numerical confidence.
+Do not default to personality scores or labels. If the user or host explicitly asks for a framework, use its concepts, state the limits of text-based inference, and allow insufficient evidence. Treat a supplied questionnaire result or type as an attributed report.
+
+When asked to connect the Myers–Briggs Type Indicator (MBTI) and Big Five, compare documented dimension-level associations and use them to identify questions worth exploring. Keep population-level associations distinct from conclusions about this person. Related dimensions are not interchangeable measures: preserve each supplied result and its source, and do not derive an individual's type or questionnaire scores from the other framework or invent numerical confidence. Consult [the framework reference](references/theory-basis.md#optional-personality-frameworks) for the research and its limits when available.
 
 ## Deliver the useful result
 
@@ -65,4 +67,4 @@ Give an explanation proportionate to the question, with the necessary evidence a
 
 For example, in a **fictional** record, helping before a deadline and declining on a rest day supports a conditional pattern, not the claim that the person always gives in. If they later report worrying after the refusal, retain the observation that they expressed a boundary while revising any claim that they felt untroubled.
 
-Maintainers can use [scenarios.md](references/scenarios.md) to review evidence use, interpretation, and responses to clarification.
+Maintainers can use [scenarios.md](references/scenarios.md) to review evidence use, interpretation, responses to clarification, and framework comparisons. Examples illustrate the rules; they are not evidence about the current user or fixed response templates.

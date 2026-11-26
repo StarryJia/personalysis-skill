@@ -23,6 +23,30 @@ Personalysis 是一套以心理学理论和人格分析框架为基础的通用�
 
 自行开发的应用也可以把 `SKILL.md` 的 Markdown 正文作为工作指令，再单独提供用户问题和授权材料。应用负责工具权限、输出格式、保存和版本选择。具体接入说明见[应用接入](integrations/host-integration.md)。
 
+## 文件与作用
+
+| 文件 | 作用与使用时机 |
+| --- | --- |
+| [SKILL.md](skills/personalysis/SKILL.md) | 技能入口；被调用时加载任务判断、证据区分、理论边界和修订规则。 |
+| [theory-basis.md](skills/personalysis/references/theory-basis.md) | 理论定义、原始论文、应用例子与限制；需要理论依据或研究结论时查阅。 |
+| [scenarios.md](skills/personalysis/references/scenarios.md) | 五个虚构输入及审查标准；维护者据此检查回答，不是固定答案或已执行记录。 |
+| [openai.yaml](skills/personalysis/agents/openai.yaml) | 供支持该配置的应用显示名称、简介和起始提示。 |
+| [技能许可证](skills/personalysis/LICENSE) | 随技能目录复制保留的许可声明。 |
+| [host-integration.md](integrations/host-integration.md) | 开发者接入指南，说明材料、权限、输出和保存的职责。 |
+| [validation.md](docs/validation.md) | 历史检查、记录的回答及验证局限，供维护者审查。 |
+
+可安装的技能包是 `skills/personalysis/` 下的五个文件。仓库另有中英文 README、接入指南、验证记录、根目录许可证和 `.gitignore`；这些配套文件不会自动成为每次分析的指令。仓库没有可执行的分析脚本或模型权重。
+
+## 如何约束分析
+
+应用先根据技能名称和描述发现技能，在适用时加载 `SKILL.md`。正文要求助手判断用户需要分析、反思还是倾诉；将结论对应到原始材料；区分观察、自述、他述和推测；考虑反证与情境；收到补充后只修订受影响的判断。需要理论依据时再查参考文献，维护者检查行为时再使用场景文件，无需每次加载全部资料。
+
+**虚构示例：**用户问“我说了这件事我来做，是不是说明当时很轻松？”技能要求先保留表达接手意愿这一观察，对当时感受保留不确定性；本人后来补充感到焦虑时，再修订情绪解释。规则约束判断依据，不要求每次输出相同句子。
+
+这些约束由模型阅读指令后执行，不是确定性的评分程序，也不保证每次都被遵守。应用仍需落实工具权限、保存操作，并检查输出格式和引用。例如，用户要求保存修正时，必须有获授权的保存操作且确认成功，才能报告已经保存。
+
+示例也有不同用途：`SKILL.md` 中的短例子说明推断边界；理论文件的例子帮助理解概念；场景文件提供虚构输入和审查标准；验证记录保留实际观察到的回答，包括不完善的回答。示例不会自动训练模型或变成用户事实。历史验证记录中的英文输入摘要与中文回答不是完整的原始输入输出对，不能从摘要确定当时请求的语言。
+
 ## 理论基础
 
 Personalysis 用人格心理学区分当场表现与较长期倾向，用人格判断研究审视观察者的证据，再参考动机、情绪及人际关系理论，理解同一经历还可能有哪些解释。以人为中心取向则指导如何回应正在表达或反思的人。
@@ -35,7 +59,7 @@ Personalysis 用人格心理学区分当场表现与较长期倾向，用人格�
 | --- | --- | --- |
 | **全特质理论（Whole Trait Theory）** | 区分短期人格状态、这些状态随时间出现的分布，以及可能解释它们的心理过程。 | [Fleeson 与 Jayawickreme，2015](https://pmc.ncbi.nlm.nih.gov/articles/PMC4472377/) |
 | **人格判断的现实准确性模型（Realistic Accuracy Model）** | 观察者需要取得相关线索、察觉它们，并恰当地使用。 | [Funder，1995](https://rap.ucr.edu/FunderPR1995.pdf) |
-| **自我—他人知识不对称模型（Self–Other Knowledge Asymmetry）** | 本人和外部观察者可能各有信息优势。 | [Vazire，2010](https://www.simine.com/docs/Vazire_JPSP_2010.pdf) |
+| **自我—他人知识不对称模型（Self–Other Knowledge Asymmetry）** | 判断准确性受信息获取差异与动机偏差影响。 | [Vazire，2010](https://www.simine.com/docs/Vazire_JPSP_2010.pdf) |
 | **McAdams 人格框架与叙事认同** | 区分特质、处境中的目标与适应方式，以及本人对人生经历的理解。 | [McAdams 与 Pals，2006](https://www.e-stimate.dk/wp-content/uploads/2019/09/McAdams-Fundamental-Principles-for-an-Integrative-Science-of-Personality.pdf)；[McAdams 与 McLean，2013](https://www.psychologicalscience.org/journals/current-directions/0963721413475622/) |
 | **自我决定理论（Self-Determination Theory）** | 自主、胜任和联结分别涉及自愿认同、有效行动及与他人的连接。 | [Ryan 与 Deci，2000](https://selfdeterminationtheory.org/SDT/documents/2000_RyanDeci_SDT.pdf) |
 | **认知评价与应对（Cognitive appraisal and coping）** | 感受和应对与事件的个人意义、本人认为可用的资源有关。 | [Folkman 等，1986](https://pubmed.ncbi.nlm.nih.gov/3712234/)；[Lazarus，1991](https://pubmed.ncbi.nlm.nih.gov/1928936/) |
@@ -46,7 +70,9 @@ Personalysis 用人格心理学区分当场表现与较长期倾向，用人格�
 
 **大五人格（Big Five）**用开放性、尽责性、外向性、宜人性和神经质五个维度描述差异。**迈尔斯–布里格斯性格类型指标（Myers–Briggs Type Indicator，MBTI）**以偏好及类型组织描述。它们与解释行为产生过程、判断观察者是否有依据的理论属于不同层次。
 
-Personalysis 从具体行为与处境开始分析，在用户需要时引入相应的描述体系。例如，工作会议中经常发言，先记录为该场景中的参与表现，再结合其他材料讨论人格倾向。全特质理论以大五为研究起点；大五维度与 MBTI 类型分别解释，保留各自的概念与测量方式。[McCrae 与 Costa，1989](https://scholars.duke.edu/publication/1458465/)
+Personalysis 从具体行为与处境开始分析，在用户需要时引入相应的描述体系。**虚构示例：**工作会议中经常发言，先记录为该场景中的参与表现，再结合其他材料讨论人格倾向。全特质理论以大五为研究起点。
+
+Personalysis 支持依据研究建立 MBTI 与大五人格之间的联系。McCrae 与 Costa 发现，四项 MBTI 指标测量了大五中四个维度的部分内容；同一研究未支持真正二分的偏好或性质截然不同的人格类型。统计关联可以帮助比较，不能直接补出某个人缺失的测验分数。**虚构示例：**MBTI 结果偏向内向，大五外向性结果处于中间范围，可以讨论二者的联系，无需直接否定其中一个结果或进行分数换算。详见[框架说明](skills/personalysis/references/theory-basis.md#optional-personality-frameworks)及 [McCrae 与 Costa，1989](https://scholars.duke.edu/publication/1458465/)。
 
 ### 理论框架基础
 

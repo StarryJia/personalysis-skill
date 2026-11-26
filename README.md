@@ -29,9 +29,23 @@ For an application without skill discovery, load the Markdown body of `SKILL.md`
 | --- | --- |
 | [SKILL.md](skills/personalysis/SKILL.md) | Self-contained reasoning and response guidance for material analysis, interactive reflection, and supportive conversation |
 | [Theory and references](skills/personalysis/references/theory-basis.md) | Primary sources, their scope, and the interpretation rules derived from them |
-| [Illustrative scenarios](skills/personalysis/references/scenarios.md) | Example inputs and observable response criteria for reviewing the instructions |
+| [Illustrative scenarios](skills/personalysis/references/scenarios.md) | Five fictional inputs and observable review criteria; not recorded runs or fixed answers |
+| [Agent metadata](skills/personalysis/agents/openai.yaml) | Display name, short description, and starting prompt for hosts that support this metadata |
+| [Skill license](skills/personalysis/LICENSE) | License notice retained when the skill directory is copied |
 | [Host integration](integrations/host-integration.md) | Guidance for connecting the skill to an application's inputs, permissions, outputs, and storage |
-| [Validation record](docs/validation.md) | Package checks and review evidence |
+| [Validation record](docs/validation.md) | Historical package checks, recorded answers, and explicit limits on what can be verified |
+
+The installable package is the five files under `skills/personalysis/`. The two README files, integration guide, validation record, repository license, and `.gitignore` support use and maintenance; they are not automatically loaded as analysis instructions. There are no executable analysis scripts or bundled model weights.
+
+## How the instructions guide analysis
+
+The host discovers the skill from its name and description, then loads `SKILL.md` when it applies. The body directs the assistant to match the user's task, trace claims to supplied material, distinguish observations from reports and interpretations, consider contrary evidence and context, and revise only the claims affected by new information. The theory reference is consulted when rationale or research claims need it; maintainers use the scenarios to review behavior. These files need not all enter every conversation.
+
+**Fictional example:** Someone asks whether saying “I'll take this task” proves they were relaxed. The skill calls for recording the expressed willingness, leaving the feeling uncertain, and revising that interpretation if the person later reports anxiety. It does not prescribe identical wording for every answer.
+
+These are language instructions, not a deterministic scoring program or a guarantee of compliance. The host still enforces tool permissions and storage operations and checks required output formats and source citations. For example, asking to save a correction requires an available, authorized storage operation and a confirmed result.
+
+Examples serve different purposes: the short example in `SKILL.md` illustrates a reasoning boundary; theory examples connect concepts to use; the scenarios give inputs and review criteria; the validation record preserves observed answers, including imperfect ones. They do not automatically train the model or become facts about a user. In the historical validation record, English input summaries and Chinese answers are not complete prompt/response pairs; the original prompt language cannot be recovered from the summaries.
 
 ## Theoretical foundations
 
@@ -45,7 +59,7 @@ Each perspective contributes a different part of the method: organizing observat
 | --- | --- | --- |
 | **Whole Trait Theory** | Distinguishes momentary states, their distribution over time, and the processes that may explain them. | [Fleeson and Jayawickreme, 2015](https://pmc.ncbi.nlm.nih.gov/articles/PMC4472377/) |
 | **Realistic Accuracy Model** | Examines whether relevant cues are available, detected, and appropriately used by an observer. | [Funder, 1995](https://rap.ucr.edu/FunderPR1995.pdf) |
-| **Self–Other Knowledge Asymmetry** | Explains why a person and outside observers may have different information advantages. | [Vazire, 2010](https://www.simine.com/docs/Vazire_JPSP_2010.pdf) |
+| **Self–Other Knowledge Asymmetry** | Relates judgment accuracy to differences in information access and motivational biases. | [Vazire, 2010](https://www.simine.com/docs/Vazire_JPSP_2010.pdf) |
 | **McAdams's personality framework and narrative identity** | Separates dispositions, situated goals and adaptations, and a person's own account of their life. | [McAdams and Pals, 2006](https://www.e-stimate.dk/wp-content/uploads/2019/09/McAdams-Fundamental-Principles-for-an-Integrative-Science-of-Personality.pdf); [McAdams and McLean, 2013](https://www.psychologicalscience.org/journals/current-directions/0963721413475622/) |
 | **Self-Determination Theory** | Describes autonomy, competence, and relatedness: volition, effectiveness, and connection. | [Ryan and Deci, 2000](https://selfdeterminationtheory.org/SDT/documents/2000_RyanDeci_SDT.pdf) |
 | **Cognitive appraisal and coping** | Relates feelings and responses to an event's meaning and perceived coping resources. | [Folkman et al., 1986](https://pubmed.ncbi.nlm.nih.gov/3712234/); [Lazarus, 1991](https://pubmed.ncbi.nlm.nih.gov/1928936/) |
@@ -56,7 +70,9 @@ Each perspective contributes a different part of the method: organizing observat
 
 The **Big Five** describes openness, conscientiousness, extraversion, agreeableness, and neuroticism as dimensions. The **Myers–Briggs Type Indicator (MBTI)** organizes personality preferences into a type framework. These are descriptive choices, distinct from theories about how behavior arises or how an observer can judge it.
 
-**Example:** Someone who frequently speaks in work meetings can explore when they contribute and what helps them speak up. A personality description can be added if it serves their question. Whole Trait Theory uses the Big Five as a starting point. Personalysis keeps Big Five dimensions and MBTI preferences separate, using the concepts and evidence appropriate to each. Research on the relationship between these descriptive frameworks provides further background. [McCrae and Costa, 1989](https://scholars.duke.edu/publication/1458465/)
+**Fictional example:** Someone who frequently speaks in work meetings can explore when they contribute and what helps them speak up. A personality description can be added if it serves their question. Whole Trait Theory uses the Big Five as a starting point.
+
+Personalysis permits evidence-based connections between MBTI and the Big Five. McCrae and Costa found that the four MBTI indices measured aspects of four Big Five dimensions, while finding no support for truly dichotomous preferences or qualitatively distinct types. A statistical relationship can inform comparison without supplying an individual's missing test scores. **Fictional example:** An introverted MBTI preference and a middle-range Big Five extraversion result can be discussed together without automatically rejecting either result or converting one score into the other. See the [framework reference](skills/personalysis/references/theory-basis.md#optional-personality-frameworks) and [McCrae and Costa, 1989](https://scholars.duke.edu/publication/1458465/).
 
 ### Theoretical framework foundations
 
