@@ -22,14 +22,3 @@ The Myers–Briggs Type Indicator (MBTI) is optional, not required for Personaly
 The frameworks can be related. [McCrae and Costa, 1989](https://scholars.duke.edu/publication/1458465/) found that the four MBTI indices measured aspects of four Big Five dimensions. The same study did not support truly dichotomous preferences or qualitatively distinct personality types. These findings permit evidence-based comparisons; they do not establish a conversion rule for an individual's type or scores, or validate typing from conversation. State which measures and evidence support a comparison rather than treating shared terminology as equivalence.
 
 **Fictional example:** A person reports an introverted MBTI preference and a middle-range Big Five extraversion result, then asks whether they conflict. Discuss the relationship between the constructs while keeping the two reported results and their measurement contexts distinct. The results need not be contradictory, and neither result alone establishes how the person behaves in every setting. Frequent work presentations can prompt a question about role demands and enjoyment, but do not settle either result. A useful answer explains the possible overlap without inventing a replacement score or dismissing either report.
-
-## Research resources
-
-Use these materials when designing evaluations of evidence selection and contextual interpretation.
-
-| Dataset and source | Possible check | Limits |
-| --- | --- | --- |
-| [PersonalityEvd — Sun et al., 2024](https://aclanthology.org/2024.emnlp-main.1115/) | Compare evidence selection and separate state/trait judgments against provided Big Five observer annotations; for example, check whether a cited utterance exists. | Dialogues concern fictional television characters; annotations use model pre-annotation and human revision. Agreement is not real-person ground truth. Filtering also limits coverage of contradictory or insufficient evidence. |
-| [CaSiNo — Chawla et al., 2021](https://aclanthology.org/2021.naacl-main.254/) | Examine whether interpretation retains assigned priorities and incentives during simulated campsite negotiations; for example, requesting more water need not imply selfishness. | Real participants perform a constrained role-play. Personality comparisons require appropriate identity, scoring, and questionnaire separation; strategy labels are not personality labels. |
-
-Choose evaluation criteria that match each source's annotations and collection setting. Review source citation, contextual explanation, and personality descriptions separately. Use the review scenarios to inspect how instructions affect responses, and consult each dataset's original publication for access and licensing.

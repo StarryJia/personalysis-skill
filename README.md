@@ -29,23 +29,19 @@ For an application without skill discovery, load the Markdown body of `SKILL.md`
 | --- | --- |
 | [SKILL.md](skills/personalysis/SKILL.md) | Self-contained reasoning and response guidance for material analysis, interactive reflection, and supportive conversation |
 | [Theory and references](skills/personalysis/references/theory-basis.md) | Primary sources, their scope, and the interpretation rules derived from them |
-| [Illustrative scenarios](skills/personalysis/references/scenarios.md) | Five fictional inputs and observable review criteria; not recorded runs or fixed answers |
 | [Agent metadata](skills/personalysis/agents/openai.yaml) | Display name, short description, and starting prompt for hosts that support this metadata |
 | [Skill license](skills/personalysis/LICENSE) | License notice retained when the skill directory is copied |
 | [Host integration](integrations/host-integration.md) | Guidance for connecting the skill to an application's inputs, permissions, outputs, and storage |
-| [Validation record](docs/validation.md) | Historical package checks, recorded answers, and explicit limits on what can be verified |
+| [Review scenarios](docs/review-scenarios.md) | Fictional inputs and review criteria for checking responses |
+| [Validation record](docs/validation.md) | Package checks and recorded test answers |
 
-The installable package is the five files under `skills/personalysis/`. The two README files, integration guide, validation record, repository license, and `.gitignore` support use and maintenance; they are not automatically loaded as analysis instructions. There are no executable analysis scripts or bundled model weights.
+The installable package is the four files under `skills/personalysis/`; everything else is for maintainers and integrators.
 
 ## How the instructions guide analysis
 
-The host discovers the skill from its name and description, then loads `SKILL.md` when it applies. The body directs the assistant to match the user's task, trace claims to supplied material, distinguish observations from reports and interpretations, consider contrary evidence and context, and revise only the claims affected by new information. The theory reference is consulted when rationale or research claims need it; maintainers use the scenarios to review behavior. These files need not all enter every conversation.
+The host discovers the skill from its name and description, then loads `SKILL.md` when it applies. The body directs the assistant to put safety risks first, match the user's task, trace claims to supplied material, distinguish observations from reports and interpretations, translate popular labels into checkable behaviors, consider contrary evidence and context, and revise only the claims affected by new information. The theory reference is loaded only when research claims are needed.
 
-**Fictional example:** Someone asks whether saying “I'll take this task” proves they were relaxed. The skill calls for recording the expressed willingness, leaving the feeling uncertain, and revising that interpretation if the person later reports anxiety. It does not prescribe identical wording for every answer.
-
-These are language instructions, not a deterministic scoring program or a guarantee of compliance. The host still enforces tool permissions and storage operations and checks required output formats and source citations. For example, asking to save a correction requires an available, authorized storage operation and a confirmed result.
-
-Examples serve different purposes: the short example in `SKILL.md` illustrates a reasoning boundary; theory examples connect concepts to use; the scenarios give inputs and review criteria; the validation record preserves observed answers, including imperfect ones. They do not automatically train the model or become facts about a user. In the historical validation record, English input summaries and Chinese answers are not complete prompt/response pairs; the original prompt language cannot be recovered from the summaries.
+**Fictional example:** Someone asks whether saying “I'll take this task” proves they were relaxed. The skill calls for recording the expressed willingness, leaving the feeling uncertain, and revising that interpretation if the person later reports anxiety.
 
 ## Theoretical foundations
 
