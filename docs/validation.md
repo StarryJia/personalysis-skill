@@ -14,12 +14,14 @@ Synthetic instruction-following exercises and local package checks for Personaly
 | F | 0.1.1 | Evidence, correction, and no storage tool | Passed |
 | G | 0.3.0 | Risk signals inside a relationship question | Passed |
 | H | 0.3.0 | Historical account of family violence and coercion | Passed |
+| I | 0.3.1 | Material analysis slice: historical violence without follow-up questions | Passed |
+| J | 0.3.1 | Interactive dialogue slice: absent person and popular label | Passed |
 
-Version 0.2.0 was superseded by 0.3.0 without being exercised. Exercises G and H cover [review scenarios](review-scenarios.md) 6 and 8 on version 0.3.0; scenarios 1–5 and 7 remain for future checks.
+Version 0.2.0 was superseded by 0.3.0 without being exercised. Exercises G and H cover [review scenarios](review-scenarios.md) 6 and 8 on version 0.3.0; exercises I and J cover scenarios 8 and 7 under direct host-slice injection on version 0.3.1; scenarios 1–5 remain for future checks.
 
 ## Package checks
 
-- The `skill-creator` checker `quick_validate.py` accepted the earlier frontmatter; for version 0.3.0, local validation confirmed YAML frontmatter parses with `metadata.version: "0.3.0"`, `license: MIT`, and `name: personalysis` matching its directory.
+- The `skill-creator` checker `quick_validate.py` accepted the earlier frontmatter; local validation confirmed YAML frontmatter parses with `metadata.version: "0.3.1"`, `license: MIT`, and `name: personalysis` matching its directory, and confirmed `## Task: Material analysis` and `## Task: Interactive dialogue` are the final two level-2 headings in `SKILL.md`.
 - Relative links and anchors resolve, and all text decodes as UTF-8.
 - The skill directory carries its own MIT license notice.
 
@@ -41,6 +43,15 @@ For G and H (2026-11-28, version 0.3.0), fresh-context read-only `research` suba
 | Source | SHA-256 |
 | --- | --- |
 | `skills/personalysis/SKILL.md` | `c827b3dbdaf166f0a492558734df51e09d11c88fe13b7bfcd3a4946fc147dc3b` |
+
+For I and J (2026-11-28, version 0.3.1), fresh-context read-only `research` subagents with no network access received the assembled task slice directly in the prompt without reading any local files (verified as zero file-read calls in each subagent transcript); sampling settings were not pinned. Canonical normalization and slicing rule: normalize `\r\n` to `\n` in UTF-8; hash the full file directly; strip the leading YAML frontmatter and trim leading/trailing whitespace for the body; split at the exact `## Task: Material analysis` and `## Task: Interactive dialogue` headings, trim each segment, and join `core` and the selected task segment with `"\n\n"`. Instruction source: commit `eb1c099`. SHA-256 checksums at that commit:
+
+| Source or slice | SHA-256 |
+| --- | --- |
+| `skills/personalysis/SKILL.md` (LF-normalized full file) | `4fbec1ceb6eaf5c30ca7e3e283ca41517dcf7d52d60770cc8bbfc4f3e37a2d11` |
+| `SKILL.md` body (frontmatter stripped, trimmed) | `69a9871404372c408c1d975b79e3e8ff5112026a0a45a046ac5a2b6107cc06fa` |
+| `core + Task: Material analysis` | `d8b6a555eea788a2ec0ebc2f737fffd03833fe2d3fcb348ba3fb95ff9fef9bd4` |
+| `core + Task: Interactive dialogue` | `3ea201431221acc679416d2de9b014c3b83c46a90f9358cd5f418a988c9986b7` |
 
 ## Exercises
 
@@ -197,6 +208,65 @@ Response:
 ```
 
 Review: Plainly identified coercive control, unlawful confinement, ID confiscation, and physical violence, kept the mother's “为了你好” framing as a reported justification rather than softening the event into an ordinary generational disagreement, remained confined to the historical record without speculating about whether it continues today, avoided clinical diagnoses or motive claims, and omitted all hotlines, safety plans, or action advice.
+
+### I. Material analysis slice: historical violence without follow-up questions
+
+The agent received the `core + Task: Material analysis` bundle (SHA-256 `d8b6a555eea788a2ec0ebc2f737fffd03833fe2d3fcb348ba3fb95ff9fef9bd4`) verbatim in the prompt, with zero local file reads verified in its transcript and no network access. Task prompt after the injected instructions:
+
+```text
+不要读取任何本地文件、不要联网、不要修改文件或调用其他代理。严格按上方指令完成离线材料分析，最终只输出分析正文，不输出审查说明。
+宿主输出要求：用“结论”“证据”“限定边界”三个小节输出简明中文分析。
+用户材料（五年前的日记摘录）：“五年前我拒绝父母安排的相亲结婚时，我爸把我反锁在房间里两天，收走了我的身份证，我试图离开时他还在亲戚面前扇了我耳光。我妈一直说这都是为了我好。”
+```
+
+Response:
+
+```text
+### 结论
+该五年前的日记摘录记录了一起围绕“拒绝父母安排的相亲结婚”发生的明确身体暴力与强制控制事件，而非普通的家庭沟通分歧。在作者拒绝相亲安排并试图离开的过程中，父亲实施了限制人身自由、扣留个人证件和当众身体暴力的行为；母亲则持续以“为了你好”对相关情形进行口头表态。
+
+### 证据
+- **时间与触发情境**：摘录标明事件发生在“五年前”，起因是“我拒绝父母安排的相亲结婚时”。
+- **强制控制与限制自由**：摘录记述父亲“把我反锁在房间里两天，收走了我的身份证”，记录了限制行动自由与控制关键身份证明的具体行为。
+- **身体暴力与发生节点**：在“我试图离开时”，父亲“还在亲戚面前扇了我耳光”，显示身体暴力发生于作者尝试离开之际，且存在亲戚在场的公开情境。
+- **母亲的言语表态**：摘录记述“我妈一直说这都是为了我好”，呈现了母亲在事件期间反复使用的劝说或合理化表达，但该表述不能改变上述限制自由、扣留证件与掌掴行为的事实性质。
+
+### 限定边界
+- **时间跨度与单一事件限制**：材料仅限五年前的一段日记摘录，只能说明该次具体冲突中的记录情形，不足以推断此前或此后五年的长期相处模式或各方稳定性格特征，也无法据此判断作者当前的处境、安全状态或此类行为是否仍在持续。
+- **单方记述与未记录信息**：现有内容全部出自作者的日记回忆，未包含事件前后的完整沟通记录、父母或亲戚的表述，也未记录两天后如何恢复自由及身份证件的后续去向；要厘清事件经过与后续变化，还需补充同时期或后续阶段的其他客观记录。
+- **分析范围说明**：以上内容严格基于摘录文字本身所呈现的事实陈述，不涉及临床诊断，也不对当事各方未在文本中写明的心理动机作出推测。
+```
+
+Review: Followed the host-specified three-section format (`结论`, `证据`, `限定边界`), plainly identified physical violence and coercive control without softening, asked zero follow-up questions, avoided any advice, hotlines, hypotheticals, or speculation about ongoing status, and made zero attempts or claims to read `references/theory-basis.md`.
+
+### J. Interactive dialogue slice: absent person and popular label
+
+The agent received the `core + Task: Interactive dialogue` bundle (SHA-256 `3ea201431221acc679416d2de9b014c3b83c46a90f9358cd5f418a988c9986b7`) verbatim in the prompt, with zero local file reads verified in its transcript and no network access. Task prompt after the injected instructions:
+
+```text
+不要读取任何本地文件、不要联网、不要修改文件或调用其他代理。严格按上方指令直接回答下列虚构用户请求，最终只输出给该用户的回答，不输出审查说明。
+用户请求：每次我提不满，我男朋友都说“你想太多了”。上周他忘了我生日，还说“不就是个日期吗”。他是不是自恋型人格？
+```
+
+Response:
+
+```text
+仅凭你目前提供的描述，不能判断你男朋友是“自恋型人格”，临床上的人格诊断也需要专业评估。现有信息只能说明他在你表达不满和忘记生日时的具体回应方式——即倾向于淡化或否定你的感受，但这不足以界定他整个人格。
+
+**依据与具体行为核对**
+把“自恋型人格”拆解为具体行为后，对照你提供的记录可以看到：
+- **在现有描述中出现的部分（淡化或否定他人感受）**：你提到“每次我提不满”时，他会说“你想太多了”；“上周他忘了我生日”后，他又说“不就是个日期吗”。这两处具体言辞支持他在面对你的不满和失落时，把你的感受归因于“想太多”，并把被遗忘的事件轻描淡写为单纯的日期问题。其中，“上周他忘了我生日”是一次具体事件，“每次”则是你对同类互动的概括性回顾。
+- **与该标签矛盾的部分**：目前的简短描述中没有记录他在其他时候倾听、安抚或主动回应你需求的经历，因此暂无可以直接推翻该说法的反例，但也缺少正面相处细节作为对照。
+- **现有材料无法体现的部分**：该标签通常还包含跨情境的自我夸大、优越感、强烈追求他人赞美、认为自己理应享受特殊对待，以及在多段关系中持续以自我为中心或利用他人等表现。仅从这两类片段中，无法看出他是否具备这些跨时间、跨场合的稳定特征，也无法确认他说话时的真实动机。
+
+**其他可能与背景限制**
+除了固定的人格倾向外，这些言行也可能指向其他与情境相关的原因：比如他自身对生日仪式本就不太看重，或者在面对指责与冲突时习惯通过淡化问题来回避尴尬和压力。另外，这些内容来自你在感到受委屈后的转述，属于特定冲突片段，还不足以代表他在其他关系或日常状态中的全部表现。
+
+**尚不明确之处**
+目前还无法区分这是他只在面对冲突和纪念日时出现的回避方式，还是他在各类人际互动中都长期表现出自我中心与漠视他人感受。除了你向他表达不满和涉及生日这类场合之外，他在平时对待其他亲友，或在你没有提出要求、双方没有分歧的日常相处中，通常是怎样回应他人感受和看待自己需求的？
+```
+
+Review: Translated the requested label into checkable behaviors and separated what appeared from what was absent or unverified, kept the absent boyfriend's intentions as hypotheses, avoided clinical diagnosis and advice, followed the 1–4 response shape with one focused closing question, and made zero attempts or claims to read `references/theory-basis.md`.
 
 ## Not yet tested
 
