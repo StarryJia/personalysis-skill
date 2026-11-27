@@ -39,7 +39,7 @@ The installable package is the four files under `skills/personalysis/`; everythi
 
 ## How the instructions guide analysis
 
-The host discovers the skill from its name and description, then loads `SKILL.md` when it applies. The body directs the assistant to put safety risks first, match the user's task, trace claims to supplied material, distinguish observations from reports and interpretations, translate popular labels into checkable behaviors, consider contrary evidence and context, and revise only the claims affected by new information. The theory reference is loaded only when research claims are needed.
+The host discovers the skill from its name and description, then loads `SKILL.md` when it applies. The body directs the assistant to identify risk signals in the material objectively without speculating about current status or offering advice, match the user's task, trace claims to supplied material, distinguish observations from reports and interpretations, translate popular labels into checkable behaviors, consider contrary evidence and context, and revise only the claims affected by new information. The theory reference is loaded only when research claims are needed.
 
 **Fictional example:** Someone asks whether saying “I'll take this task” proves they were relaxed. The skill calls for recording the expressed willingness, leaving the feeling uncertain, and revising that interpretation if the person later reports anxiety.
 

@@ -10,7 +10,7 @@ Personalysis supplies interpretation rules. The host supplies the actual task, a
 4. Validate the host's required output format and check that citations support the associated observations.
 5. Record the skill version and resolved content or a reproducible content reference with the task. Resume a task with the original rules.
 6. Report a saved correction or profile update only after the storage operation confirms success. Revising an answer in conversation does not change stored records.
-7. Supply region-appropriate emergency and crisis contacts in the host instructions so the skill's safety step can name concrete resources.
+7. Keep the skill scoped to material-based analysis: Personalysis objectively identifies and explains risk signals recorded in the material and does not output emergency hotlines or action advice.
 
 For example, a journal application may discuss a user's correction immediately. If the user asks to save it and the application provides an authorized storage operation, the host can perform and verify that update. An application without that capability must not claim a stored profile has changed.
 
