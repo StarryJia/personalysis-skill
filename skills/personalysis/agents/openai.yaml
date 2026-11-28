@@ -1,4 +1,4 @@
 interface:
   display_name: "Personalysis"
   short_description: "Understand people through evidence and context"
-  default_prompt: "Use $personalysis to help me understand this conversation, keeping observations, possible explanations, and uncertainty distinct."
+  default_prompt: "Use $personalysis to help me understand the behavior, emotions, and dynamics in this conversation, grounded in what actually happened."

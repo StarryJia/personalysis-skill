@@ -10,7 +10,7 @@ Personalysis supplies interpretation rules. The host supplies the actual task, a
 4. Validate the host's required output format and check that citations support the associated observations.
 5. Record the skill version and resolved content or a reproducible content reference with the task. Resume a task with the original rules.
 6. Report a saved correction or profile update only after the storage operation confirms success. Revising an answer in conversation does not change stored records.
-7. Keep the skill scoped to material-based analysis: Personalysis objectively identifies and explains risk signals recorded in the material and does not output emergency hotlines or action advice.
+7. Keep the skill grounded and well-scoped: Personalysis flags only serious, concrete, recent or recurring participant-direct risk signals in a restrained tone (excluding banter, third-party gossip, minor life complaints, and resolved past lows), leaves room for the host to attach a brief help entrypoint when warranted, and may include 1–2 concrete, context-fitting perspectives without clinical diagnoses or making major life decisions for the user.
 
 For example, a journal application may discuss a user's correction immediately. If the user asks to save it and the application provides an authorized storage operation, the host can perform and verify that update. An application without that capability must not claim a stored profile has changed.
 
@@ -20,9 +20,9 @@ Load the core instructions for the task and expose supporting references when re
 
 After removing the leading YAML frontmatter (`--- ... ---`), `SKILL.md` is partitioned into three fixed regions in exact order:
 
-- `core`: from `# Personalysis` up to immediately before `## Task: Material analysis` (shared rules for objective risk signal identification, evidence attribution and distinctions, eight theoretical perspectives, contrary-evidence checking and proportional revision, and optional personality frameworks).
-- `materialAnalysis`: from `## Task: Material analysis` up to immediately before `## Task: Interactive dialogue` (offline/batch analysis of chat logs and journals without follow-up questions).
-- `interactiveDialogue`: from `## Task: Interactive dialogue` to the end of the file (multi-turn reflection, supportive conversation, live clarification handling, absent-person and popular-label analysis, and the default 1–4 step dialogue response shape).
+- `core`: from `# Personalysis` up to immediately before `## Task: Material analysis` (shared rules for warm, decisive, fact-grounded analysis, narrowed risk filtering with temporal separation, internal evidence attribution, eight internal analytical lenses, silent counterexample checking with grounded perspective, and tiered-confidence personality frameworks).
+- `materialAnalysis`: from `## Task: Material analysis` up to immediately before `## Task: Interactive dialogue` (offline/batch analysis of chat logs and journals without follow-up questions or mandatory uncertainty checklists, while allowing 1–2 grounded perspectives where host format permits).
+- `interactiveDialogue`: from `## Task: Interactive dialogue` to the end of the file (multi-turn reflection, supportive conversation, live clarification handling, absent-person and popular-label analysis, and the natural three-part dialogue response shape).
 
 `## Task: Material analysis` and `## Task: Interactive dialogue` are always the last two level-2 (`##`) headings in `SKILL.md`; subsections inside them use level-3 (`###`) headings only. Hosts can split unambiguously on those two exact headings and assemble:
 

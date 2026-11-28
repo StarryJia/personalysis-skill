@@ -15,8 +15,8 @@ The complete skill package is [`skills/personalysis/`](skills/personalysis/SKILL
 In a host that supports named skill invocation, a starting request is:
 
 ```text
-Use $personalysis to help me understand these exchanges. Distinguish what I
-actually said, possible explanations, and what cannot be inferred yet.
+Use $personalysis to help me understand the behavior, emotions, and dynamics in
+these exchanges, grounded in what actually happened.
 ```
 
 Then supply the material you want considered. **Example:** You share messages accepting a deadline-related request and declining a weekend request. The assistant can compare the circumstances, identify what you agreed to or declined, and help you explore how urgency and rest affected your choices.
@@ -39,7 +39,7 @@ The installable package is the four files under `skills/personalysis/`; everythi
 
 ## How the instructions guide analysis
 
-The host discovers the skill from its name and description, then loads `SKILL.md` when it applies. After the YAML frontmatter, the body is organized into three fixed regions—the shared `core` section followed by the final two level-2 headings, `## Task: Material analysis` and `## Task: Interactive dialogue`—so `SKILL.md` works both as a standalone skill file and via task-scoped host injection. The core directs the assistant to identify risk signals in the material objectively without speculating about current status or offering advice, trace claims to supplied material, distinguish observations from reports and interpretations, consider contrary evidence and context, revise only claims affected by new information, and apply personality frameworks only on request. The two task sections separate offline/batch analysis rules (following host format, no follow-up questions) from interactive dialogue rules (mode matching, live clarifications, absent-person and popular-label breakdown, and the 1–4 step response shape). The theory reference (`references/theory-basis.md`) is consulted on demand only in environments that expose local reference files.
+The host discovers the skill from its name and description, then loads `SKILL.md` when it applies. After the YAML frontmatter, the body is organized into three fixed regions—the shared `core` section followed by the final two level-2 headings, `## Task: Material analysis` and `## Task: Interactive dialogue`—so `SKILL.md` works both as a standalone skill file and via task-scoped host injection. The core pairs strict factual boundaries (no fabricated events, distorted quotes, clinical diagnoses, or deciding major life choices) with warm, direct, insightful prose free of defensive hedging. It filters risk signals strictly to serious, concrete, recent or recurring harm involving the participants (excluding banter, third-party gossip, minor complaints, and resolved past lows, while leaving room for a brief host help entrypoint when warranted), treats theory and counterexample checks as silent internal lenses, applies tiered confidence (**clear tendency**, **mild lean**, or **insufficient cues**) to requested personality frameworks as contextual tendencies, and permits 1–2 concrete, low-pressure perspectives once a pattern is clear. The two task sections separate offline/batch analysis rules (following host format, no follow-up questions or mandatory uncertainty checklists) from interactive dialogue rules (mode matching, live clarifications, absent-person and popular-label breakdown, and the three-part response flow). The theory reference (`references/theory-basis.md`) is consulted on demand only in environments that expose local reference files.
 
 **Fictional example:** Someone asks whether saying “I'll take this task” proves they were relaxed. The skill calls for recording the expressed willingness, leaving the feeling uncertain, and revising that interpretation if the person later reports anxiety.
 
